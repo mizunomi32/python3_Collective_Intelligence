@@ -1,0 +1,1 @@
+pip install feedparser pillow BeautifulSoup4 pysqlite numpy matplotlib 
