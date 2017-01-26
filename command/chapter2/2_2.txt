@@ -1,0 +1,38 @@
+2章
+# 2.2 嗜好の収集
+## p.9
+
+>> from recommendations import critics
+>> critics['Lisa Rose']['Lady in the Water']
+2.5
+>> critics['Toby']['Snakes on a Plane']=4.5
+>> critics['Toby']
+{'Snakes on aPlane':4.5,'Superman Returns':4.0,'You, Me and Dupree':1.0}
+
+# 2.3.1 ユークリッド距離によるスコア
+## p.10
+
+>> form math import sqrt
+>> sqrt(pow(4.5-4,2)+pow(1-2,2))
+1.1180339887498949
+
+## p.11
+>> 1/(1+sqrt(pow(4.5-4,2)+pow(1-2,2)))
+0.4721359549995794
+
+>> import recommendations
+>> recommendations.sim_distance(recommendations.critics,
+... 'Lisa Rose','Gene Seymour')
+0.294298055086
+
+# 2.3.2 ピアソン相関によるスコア
+## p.14
+>> from importlib import reload
+>> reload(recommendations)
+>> print(recommendations.sim_pearson(recommendations.critics,
+... 'Lisa Rose','Gene Seymour'))
+
+## p.15
+>> reload(recommendations)
+>> recommendations.topMatches(recommendations.critics,'Toby',n=3)
+[(0.9912407071619299, 'Lisa Rose'), (0.9244734516419049, 'Mick LaSalle'), (0.8934051474415647, 'Claudia Puig')]
