@@ -119,3 +119,20 @@ def transformPrefs(prefs):
       # itemとpersonを入れ替える
       result[item][person]=prefs[person][item]
   return result
+
+def calculateSimilarItems(prefs,n=10,similarity=sim_distance):
+  # アイテムをキーとして持ち、それぞれのアイテムに似ている
+  # アイテムのリストを値として持つディクショナリを作る
+  result={}
+
+  # 嗜好の行列を中心な形に反転させる
+  itemPrefs=transformPrefs(prefs)
+  c=0
+  for item in itemPrefs:
+    # 巨大なデータセット用にステータスを表示
+    c+=1
+    if c%100==0: print( "%d / %d" % (c,len(itemPrefs)))
+    # このアイテムにもっと似ているアイテムたちを探す
+    scores=topMatches(itemPrefs,item,n,similarity)
+    result[item]=scores
+  return result

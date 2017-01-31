@@ -59,3 +59,9 @@
 
 # 2.6　Delicious
 python3対応のソースあるが,apiが死んでる(?)のでパス
+
+# 2.7.1 アイテム間の類似度のデータセットを作る
+## p.25
+>>> reload(recommendations)
+>>> itemsim=recommendations.calculateSimilarItems(recommendations.critics)
+>>> itemsim
